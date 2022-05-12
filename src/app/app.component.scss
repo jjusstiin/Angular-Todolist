@@ -1,0 +1,84 @@
+.container{
+  width: 1024px;
+  height: 800px;
+  margin: 0 auto;
+
+  //輸入任務標題
+  .nav{
+    height: 76px;
+    background: #4A90E2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & > div{
+      height: 76px;
+      font-size: 24px;
+      color: #00408B;
+      text-align: center;
+      padding: 23px 15px;
+      margin: 0 20px;
+      cursor: pointer;
+    }
+    .on-hover{
+      color: #fff;
+      border-bottom: 3px #00408B solid;
+    }
+  }
+
+  //內容
+  .content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #E1E1E1;
+    min-height: 900px;
+    overflow: scroll;
+    position: relative;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    // 新增任務按鈕
+    .add-task-btn{
+      cursor: pointer;
+      background: #FFFFFF;
+      border: 2px solid #C8C8C8;
+      border-radius: 5px;
+      width: 620px;
+      height: 65px;
+      padding: 20px;
+      margin: 20px;
+      & > span{
+        font-size: 24px;
+        color: #C8C8C8;
+        text-align: left;
+      }
+      &:hover{
+        border: 2px rgb(112, 112, 112) solid;
+        span{
+          color: rgb(112, 112, 112);
+
+        }
+      }
+    }
+
+    .taskCount{
+      width: 620px;
+      color: #C8C8C8;
+      font-style: italic;
+      font-size: 24px;
+      padding: 0px 0px 30px;
+        span{
+          float: left;
+        }
+    }
+
+  }
+}
+
+// 其他處理
+.pi-calendar:before, .pi-file:before, .pi-comment:before {
+  font-weight: bold;
+}
+

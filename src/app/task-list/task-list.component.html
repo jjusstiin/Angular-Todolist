@@ -1,0 +1,38 @@
+<div class="task-list">
+
+  <div *ngFor="let item of res; index as idx" class="task-out-one-layer">
+    <div class="task" *ngIf="!item.showEdit"  [class.task-important]="item.star" (click)="showEditTask($event, idx)">
+
+      <div class="task-first-layer">
+        <span class="edit-spot">⋮</span>
+
+        <div class="task-second-layer">
+
+          <div class="task-head">
+            <div class="task-head-front">
+              <input [checked]="item.taskDone"  type="checkbox" class="task-head-checkbox" id="{{'task-head-checkbox-'+idx}}"/>
+              <label class="task-head-checkmark" (click)="setCheckToggle(idx)" id="{{'task-head-checkbox-'+idx}}"></label>
+              <p [class.task-is-done]="item.taskDone">{{item.title}}</p>
+            </div>
+            <div class="task-pi-area">
+              <span (click)='setStarToggle(idx)'><i [class]="{'pi-star-fill': item.star, 'pi-star': !item.star}" class="pi" style="font-size: 25px"></i></span>
+              <span><i class="pi pi-pencil" style="font-size: 25px"></i></span>
+            </div>
+          </div>
+
+          <div class="task-pi-show">
+            <div class="task-show-calendar" *ngIf="item.date || item.time"><span><i class="pi pi-calendar" style="font-size: 15px"></i></span>&nbsp;{{item.date}}{{" "+item.time}}</div>
+            <span *ngIf="item.file"><i class="pi pi-file" style="font-size: 15px"></i></span>
+            <span *ngIf="item.comment"><i class="pi pi-comment" style="font-size: 15px"></i></span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class=""><app-edit-task-list *ngIf="item.showEdit" [oneData]="oneData"></app-edit-task-list></div>
+  </div>
+
+</div>

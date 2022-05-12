@@ -1,0 +1,28 @@
+<div class="container">
+
+<!-- Navbar -->
+<div class="nav" >
+  <div *ngFor="let item of navSwich; index as idx" [class.on-hover]="item.classSet" (click)="changClass(idx)">{{item.title}}</div>
+</div>
+
+<!-- 內容 -->
+<div class="content">
+
+  <!-- 新增任務按鈕 -->
+  <div class="add-task-btn" (click)="showEditTask()" *ngIf="!showEditTaskArea">
+    <span>+ &nbsp;Add Task</span>
+  </div>
+
+  <!-- 輸入任務內容區域 -->
+  <app-edit-task *ngIf="showEditTaskArea" (newShowEditTaskArea)="showEditTask()" (getTaskData)="getTaskData()"></app-edit-task>
+
+
+  <!-- 任務列表 -->
+  <app-task-list [res]="res" (initShowEditTask)="initShowEditTask()" [showEditTaskArea]="showEditTaskArea" (InitTaskListEdit)="InitTaskListEdit()"></app-task-list>
+
+  <div class="taskCount"><span>{{taskCount}} {{isDoneText}}</span></div>
+</div>
+
+</div>
+
+

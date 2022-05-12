@@ -1,0 +1,146 @@
+// 任務列表
+.task-out-one-layer{
+  display: flex;
+  justify-content: center;
+
+  .task{
+    width: 620px;
+    background: #F2F2F2;
+    border-radius: 5px;
+    margin: 10px;
+    height: 102px;
+    cursor: pointer;
+
+    .task-first-layer{
+      display: flex;
+      align-items: center;
+
+      .edit-spot{
+        margin-left: 5px;
+        font-size: 30px;
+        color: #D8D8D8;
+        opacity: 0;
+      }
+
+      .task-second-layer{
+        width: 620px;
+        height: 102px;
+
+        .task-head{
+          height: 76px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .task-head-front{
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+
+            /* Hide the browser's default checkbox */
+            .task-head-checkbox{
+              position: relative;
+              left: 30px;
+              opacity: 0;
+              height: 0;
+              width: 0;
+            }
+
+            /* Create a custom checkbox */
+            .task-head-checkmark {
+              height: 25px;
+              width: 25px;
+              margin: 0px 10px 0px 10px;
+              background-color: #eee;
+              border-radius: 2px;
+              cursor: pointer;
+            }
+
+            /* On mouse-over, add a grey background color */
+            .task-head-checkmark:hover {
+              background-color: #ccc;
+            }
+
+            /* When the checkbox is checked, add a blue background */
+            .task-head-checkbox:checked ~ .task-head-checkmark {
+              background-color: #2196F3;
+            }
+
+            /* Create the checkmark/indicator (hidden when not checked) */
+            .task-head-checkmark:after {
+              content: "";
+              position: relative;
+              display: none;
+            }
+
+            /* Show the checkmark when checked */
+            .task-head-checkbox:checked ~ .task-head-checkmark:after {
+              display: block;
+            }
+
+            /* Style the checkmark/indicator */
+            .task-head-checkmark:after {
+              left: 9px;
+              top: 5px;
+              width: 5px;
+              height: 10px;
+              border: solid white;
+              border-width: 0 3px 3px 0;
+              transform: rotate(45deg);
+            }
+
+            .task-is-done{
+              color: #9B9B9B;
+              text-decoration: line-through;
+            }
+          }
+
+          .task-head-input{
+            color: #000;
+            border: none;
+            background: none;
+            font-size: 24px;
+          }
+
+          .task-pi-area span{
+            cursor: pointer;
+            margin-right: 20px;
+            .pi-star-fill{
+              color: #F5A623;
+            }
+          }
+
+        }
+
+        .task-pi-show{
+          color: #757575;
+          margin: -5px 0px 10px 55px;
+          .task-show-calendar{
+            display: inline;
+          }
+          span{
+            margin-left: 10px;
+          }
+        }
+
+      }
+
+    }
+
+    &:hover{
+      position: relative;
+      top: -15px;
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+      .task-first-layer{
+        .edit-spot{
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .task-important{
+    background-color: #FFF2DC;
+  }
+}
+

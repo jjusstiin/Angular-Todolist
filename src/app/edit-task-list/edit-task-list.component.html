@@ -1,0 +1,48 @@
+<div class="add-task">
+
+  <!-- 輸入任務標題區 -->
+  <form [formGroup]="editListForm">
+
+    <div class="add-task-head" [class.light]="oneData.star">
+      <div class="add-task-head-front">
+        <input (click)="taskDoneToggle()" [checked]="oneData.taskDone" type="checkbox" class="add-task-head-checkbox" id="add-task-head-checkbox"/>
+        <label class="checkmark" for="add-task-head-checkbox"></label>
+        <input formControlName="title" [value]="oneData.title" class="add-task-head-input" type="text" placeholder="Type Something Here">
+      </div>
+      <div class="add-task-pi-area">
+        <span (click)="starToggle()"><i [class]="{'pi-star-fill': starStuation, 'pi-star': !starStuation}" class="pi" style="font-size: 25px"></i></span>
+        <span><i class="pi pi-pencil" style="font-size: 25px"></i></span>
+    </div>
+    </div>
+
+    <div class="add-task-body">
+
+      <div class="add-content">
+        <div class="add-title"><i class="pi pi-calendar" style="font-size: 15px"></i>&nbsp;&nbsp;Deadline</div>
+        <div class="deadline-input">
+          <input formControlName="date" [value]="oneData.date" type="date" placeholder="yyyy/mm/dd">
+          <input formControlName="time" [value]="oneData.time" type="time" placeholder="hh:mm">
+        </div>
+      </div>
+
+      <div class="add-content">
+        <div class="add-title"><i class="pi pi-file" style="font-size: 15px"></i>&nbsp;&nbsp;File</div>
+        <label class="add-file">+<input class="file-input" type="file"></label>
+      </div>
+
+      <div class="add-content">
+        <div class="add-title"><i class="pi pi-comment" style="font-size: 15px"></i>&nbsp;&nbsp;Comment</div>
+        <textarea formControlName="comment" [value]="oneData.comment" class="comment-input" placeholder="Type your memo here..."></textarea>
+      </div>
+
+    </div>
+
+    <!-- 提交按鈕 -->
+    <div class="add-task-footer">
+      <button class="cancel" (click)="closeEdit()">X&nbsp; Cancel</button>
+      <button class="submit" (click)="submitEdit()"><i class="pi pi-plus" style="font-size: 15px; font-weight: 500; font-size: 20px;"></i>&nbsp; Save</button>
+    </div>
+
+  </form>
+
+</div>
